@@ -10,6 +10,7 @@ from django.contrib.auth.models import User
 
 
 class Pregunta(models.Model):
+    numero_de_respuestas_permitidas = 1
     texto = models.TextField(verbose_name= 'Texto de la pregunta')
     def __str__(self):
         return self.texto

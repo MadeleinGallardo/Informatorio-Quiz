@@ -1,10 +1,13 @@
 from django.contrib import admin
 from django.db import models
 from preguntas.models import Pregunta, ElegirRespuesta, PreguntasRespondidas
+from .forms import ElegirInlineFormset
+
 # Register your models here.
 # instancia los modelos
 class ElegirRespuestaInline(admin.TabularInline):
     model = ElegirRespuesta
+    formset = ElegirInlineFormset
     
 
 class PreguntaAdmin(admin.ModelAdmin):
