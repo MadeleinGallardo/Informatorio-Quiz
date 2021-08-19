@@ -2,6 +2,6 @@ from django.shortcuts import render
 
 # Create your views here.
 
-def Inicio(request):
+def inicio(request):
 
-    return render(request,'Inicio.html', context=None)
+    return render(request,'inicio.html', context=None)

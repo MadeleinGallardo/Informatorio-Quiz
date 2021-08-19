@@ -20,9 +20,9 @@ from preguntas import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('inicio/', views.Inicio ),
-    path('login/', views ),#Iria una view de login
-    path('jugar/', views ),#Iria una view para jugar
-    '''Creo que tambien una view para rankings, estadisticas, compartir
-    (podria ir todo junto en una app)'''
+    path('inicio/', views.inicio ),
+    # path('login/', views ),#Iria una view de login
+    #path('jugar/', views ),#Iria una view para jugar
+    #'''Creo que tambien una view para rankings, estadisticas, compartir
+    #(podria ir todo junto en una app)'''
 ]
