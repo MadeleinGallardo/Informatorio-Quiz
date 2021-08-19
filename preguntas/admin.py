@@ -8,7 +8,7 @@ from .forms import ElegirInlineFormset
 class ElegirRespuestaInline(admin.TabularInline):
     model = ElegirRespuesta
     formset = ElegirInlineFormset
-    
+
 
 class PreguntaAdmin(admin.ModelAdmin):
     model = Pregunta
