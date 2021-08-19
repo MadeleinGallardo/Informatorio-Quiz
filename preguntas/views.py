@@ -5,7 +5,7 @@ from .forms import RegistroFormulario
 # Create your views here.
 
 def inicio(request):
-    return render(request,'inicio.html', context=None)
+    return render(request,'quiz/inicio.html', context=None)
 
     
 
@@ -24,4 +24,8 @@ def registro(request):
     }
     
     return render(request, 'Usuario/registro.html', context)
+
+
+def jugar(request):
+    return render(request, 'quiz/jugar.html', context=None)
 

@@ -21,7 +21,7 @@ from preguntas import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-
+    path('jugar/', views.jugar),
     path('inicio/', views.inicio ),
     path('registro/', views.registro ),
 
