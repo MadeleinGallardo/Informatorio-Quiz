@@ -27,5 +27,10 @@ def registro(request):
 
 
 def jugar(request):
+
     return render(request, 'quiz/jugar.html', context=None)
+
+def login(request):
+    return render(request, 'Usuario/login.html', context=None)
+
 

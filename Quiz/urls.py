@@ -24,6 +24,7 @@ urlpatterns = [
     path('jugar/', views.jugar),
     path('inicio/', views.inicio ),
     path('registro/', views.registro ),
+    path('login/', views.login ),
 
     #path('login/', views ),#Iria una view de login
 

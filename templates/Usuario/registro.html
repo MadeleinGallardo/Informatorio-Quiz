@@ -1,8 +1,16 @@
-<form method = 'POST'>
-    {% csrf_token %}
-    {{form.as_p}}
-    <button type = 'submit'>
-        Enviar
-    </button>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Quiz | aniversario de Provincialización del Chaco.{% endblock %}
 
-</form>
+
+{% block content %}
+    <h2>Complete los datos</h2>
+    <form method = 'POST'>
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type = 'submit'>
+            Enviar
+        </button>
+
+    </form>
+{% endblock %}
