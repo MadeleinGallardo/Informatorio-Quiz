@@ -2,7 +2,7 @@ from django.db import models
 from django.db.models.base import Model
 from django.conf import settings
 from django.contrib.auth.models import User
-
+from django.contrib.auth.forms import UserCreationForm
 
 
  
