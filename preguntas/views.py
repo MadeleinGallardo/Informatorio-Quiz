@@ -4,9 +4,10 @@ from .forms import RegistroFormulario
 
 # Create your views here.
 
-def Inicio(request):
+def inicio(request):
+    return render(request,'inicio.html', context=None)
 
-    return render(request,'Inicio.html', context=None)
+    
 
 def registro(request):
     titulo = 'Crear Usuario'
@@ -23,3 +24,4 @@ def registro(request):
     }
     
     return render(request, 'Usuario/registro.html', context)
+

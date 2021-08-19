@@ -34,3 +34,4 @@ class PreguntasRespondidas(models.Model):
     correcta = models.BooleanField(verbose_name= '¿Es esta la respuesta correcta?', default= False, null= False)
     puntaje_obtenido = models.DecimalField(verbose_name= 'Puntaje Obtenido ', default= 0,decimal_places= 3, max_digits = 6)
     
+    
