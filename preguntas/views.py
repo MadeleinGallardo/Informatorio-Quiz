@@ -7,7 +7,6 @@ from .forms import RegistroFormulario
 def inicio(request):
     return render(request,'quiz/inicio.html', context=None)
 
-    
 
 def registro(request):
     titulo = 'Crear Usuario'
