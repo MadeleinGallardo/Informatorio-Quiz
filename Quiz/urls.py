@@ -14,24 +14,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+#from django.conf.urls import url
 from django.urls import path
 from preguntas import views
 
 
 
 urlpatterns = [
+    path('', views.inicio, name='inicio' ),
+    #url(r'^$', views.inicio, name='inicio'),
     path('admin/', admin.site.urls),
     path('jugar/', views.jugar),
-    path('inicio/', views.inicio ),
+    path('login/', views.vista_login ),
     path('registro/', views.registro ),
-    path('login/', views.login ),
-
-    #path('login/', views ),#Iria una view de login
-
-   
-    # path('login/', views ),#Iria una view de login
-
-    #path('jugar/', views ),#Iria una view para jugar
-    #'''Creo que tambien una view para rankings, estadisticas, compartir
-    #(podria ir todo junto en una app)'''
+#'''Creo que tambien una view para rankings, estadisticas, compartir
+#(podria ir todo junto en una app)'''
 ]

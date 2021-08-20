@@ -1,11 +1,20 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Iniciar Sesión{% endblock %}
+{% block title %}Inicair Sesión{% endblock %}
 
 
 {% block content %}
 
 
-<h2>Proband, probando, aca seria para iniciar sesion </h2>
+    <h2>Proband, probando, aca seria para iniciar sesion </h2>
+
+    <form method = 'POST'>
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type = 'submit'>
+            Enviar
+        </button>
+
+    </form>
 
 {% endblock %}
