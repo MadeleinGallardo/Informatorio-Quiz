@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login
 from django.shortcuts import redirect, render
 from .forms import RegistroFormulario, IniciarSesionForm
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 # Create your views here.
 
@@ -12,38 +13,28 @@ def inicio(request):
 
 
 def registro(request):
-    titulo = 'Crear Usuario'
-    if request.method == 'POST':
-        form = RegistroFormulario(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('')
-    else:
-        form = RegistroFormulario()
-    context = {
-        'form' : form,
-        'titulo': titulo,
+    
+    data = {
+        "form" : RegistroFormulario()
     }
 
-    return render(request, 'Usuario/registro.html', context)
+    if request.method == 'POST':
+        form = RegistroFormulario(data=request.POST)
+        if form.is_valid():
+            form.save()
+            user = authenticate(username=form.cleaned_data["username"], password=form.cleaned_data["password1"])
+            login(request, user)
+            messages.success(request, "Te has registrado correctamente")
+            return redirect(to='inicio')
+        data["form"] = form    
+
+    return render(request, 'registration/registro.html', data)
 
 
 def jugar(request):
 
     return render(request, 'quiz/jugar.html', context=None)
 
-# Intento de inicio de sesion
 
-def vista_login(request):
-    title = "Iniciar Sesion"
-    form = IniciarSesionForm(request.POST or None)
-    if form.is_valid():
-        usuario = form.cleaned_data.get("Nombre de usuario")
-        contraseña = form.cleaned_data.get("contraseña")
-        user = authenticate(username=usuario, password=contraseña)
-        login(request,user)
-        return redirect('')
-
-    return render(request, 'Usuario/login.html',{"form":form, "titulo":title})
 
 
