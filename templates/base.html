@@ -10,6 +10,8 @@
     <title>{% block title %} {% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <script src="{% static 'js/script.js'%}"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 <body>
     <header>
@@ -17,27 +19,27 @@
         <nav>
             <ul class="menu">
               <li class="logo"><a href="{% url 'inicio' %}">Quiz Game</a></li>
-              <li class="item"><a href="/jugar">Jugar</a></li>
+              <li class="item boton-3"><a href="/jugar">Jugar  <i class="fas fa-gamepad"></i></a></li>
               <li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li>
               {%  if user.is_authenticated %}
               <li>
-                  <a href="{% url 'estadisticas' %}">@{{ user.username }}</a>
+                  <a class="fas fa-chart-line" href="{% url 'estadisticas' %}">@{{ user.username }}  <i class="fas fa-user-circle"></i></a>
               </li>
               </li>
               <li class="">
-                  <a href="{% url 'ranking' %}">ranking</a>
+                  <a href="{% url 'ranking' %}">Ranking  <i class="fas fa-trophy"></i></a>
               </li>
 
               <li class="item button">
-                  <a href="{% url 'logout' %}">cerrar sesión</a>
+                  <a href="{% url 'logout' %}">Cerrar sesión  <i class="fas fa-power-off"></i></a>
               </li>
 
               {% else %}
               <li class="item button">
-                <a href="{% url 'login' %}">Iniciar sesión</a>
+                <a href="{% url 'login' %}">Iniciar sesión  <i class="fas fa-sign-in-alt"></i></a>
               </li>
               <li class="item button secondary">
-                  <a href="{% url 'registro' %}">Registrarse</a>
+                  <a href="{% url 'registro' %}">Registrarse  <i class="fas fa-user-plus"></i></a>
                 
 
               {% endif %}
