@@ -26,7 +26,7 @@ def registro(request):
             login(request, user)
             messages.success(request, "Te has registrado correctamente")
             return redirect(to='inicio')
-        data["form"] = form    
+        data["form"] = form
 
     return render(request, 'registration/registro.html', data)
 
@@ -34,6 +34,18 @@ def registro(request):
 def jugar(request):
 
     return render(request, 'quiz/jugar.html', context=None)
+
+
+@login_required()
+def ranking(request):
+
+    return render(request, 'quiz/ranking.html',context=None)
+
+@login_required()
+def estadisticas(request):
+
+    return render(request, 'quiz/estadisticas.html',context=None)
+
 
 
 

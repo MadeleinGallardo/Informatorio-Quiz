@@ -20,20 +20,26 @@
               <li class="item"><a href="/jugar">Jugar</a></li>
               <li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li>
               {%  if user.is_authenticated %}
+              <li>
+                  <a href="{% url 'estadisticas' %}">@{{ user.username }}</a>
+              </li>
+              </li>
+              <li class="">
+                  <a href="{% url 'ranking' %}">ranking</a>
+              </li>
+
               <li class="item button">
                   <a href="{% url 'logout' %}">cerrar sesión</a>
               </li>
-              <li>
-                  <a href="#">@{{ user.username }}</a>
-              </li>
-              
+
               {% else %}
               <li class="item button">
                 <a href="{% url 'login' %}">Iniciar sesión</a>
               </li>
               <li class="item button secondary">
                   <a href="{% url 'registro' %}">Registrarse</a>
-                </li>
+                
+
               {% endif %}
             </ul>
           </nav>

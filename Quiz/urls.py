@@ -26,7 +26,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('jugar/', views.jugar),
     path('registro/', views.registro, name="registro"),
-    path('accounts/', include('django.contrib.auth.urls'))
-#'''Creo que tambien una view para rankings, estadisticas, compartir
-#(podria ir todo junto en una app)'''
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('ranking/', views.ranking, name='ranking'),
+    path('estadisticas/', views.estadisticas, name='estadisticas')
+
+
 ]
