@@ -19,11 +19,11 @@
         <nav>
             <ul class="menu">
               <li class="logo"><a href="{% url 'inicio' %}">Quiz Game</a></li>
-              <li class="item boton-3"><a href="/jugar">Jugar  <i class="fas fa-gamepad"></i></a></li>
+              <li class="item"><a href="/jugar">Jugar  <i class="fas fa-gamepad"></i></a></li>
               <li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li>
               {%  if user.is_authenticated %}
               <li>
-                  <a class="fas fa-chart-line" href="{% url 'estadisticas' %}">@{{ user.username }}  <i class="fas fa-user-circle"></i></a>
+                  <a href="{% url 'estadisticas' %}">@{{ user.username }}  <i class="fas fa-user-circle"></i></a>
               </li>
               </li>
               <li class="">
