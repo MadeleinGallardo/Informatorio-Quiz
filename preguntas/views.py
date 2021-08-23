@@ -11,7 +11,6 @@ def inicio(request):
     return render(request,'quiz/inicio.html', context=None)
 
 
-
 def registro(request):
     
     data = {
