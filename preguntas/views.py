@@ -42,7 +42,6 @@ def ranking(request):
 
 @login_required()
 def estadisticas(request):
-
     return render(request, 'quiz/estadisticas.html',context=None)
 
 
