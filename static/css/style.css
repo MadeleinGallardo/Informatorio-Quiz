@@ -2,6 +2,7 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    text-decoration: none;
   }
   body {
     font-family: sans-serif;
@@ -141,17 +142,33 @@
 
 /*Esto despues lo borro*/
 .prueba-inicio{
-    font-size: 60px;
+  font-size: 60px;
 }
 
 footer{
-    display: block;
-    background: #222;
-    font-family: sans-serif;
-    text-align: center;
+  display: block;
+  background: #222;
+  font-family: sans-serif;
+  text-align: center;
+  color: seashell;
         
 }
 
-footer>p{
-    color: seashell;
+.fas{
+  color: #e64646;
+}
+
+h2{
+  color: rgb(19, 6, 94);
+  
+}
+.portada{
+  font-family: 'Teko', sans-serif;
+  font-size: 50px;
+}
+
+.portada-lista{
+  font-family: 'Teko', sans-serif;
+  font-size: 26px;
+  font-weight: bold;
 }
