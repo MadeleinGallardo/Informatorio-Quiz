@@ -7,4 +7,33 @@
 
 <h2>Proband, probando, aca seria todo el juego ya </h2>
 
+
+{%for pregunta in pregunta %}
+    
+    <p>
+        <strong>
+            {{pregunta}}
+        </strong>
+    </p>
+    {% for respuestas in pregunta.preguntas.all %}
+        <p>
+            
+                {{respuestas}}
+            
+        </p>
+    
+    {%endfor %}
+    
+
+
+{% endfor %}
+
+
+
+
 {% endblock %}
+
+
+
+
+

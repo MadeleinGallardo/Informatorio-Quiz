@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.db import models
-from preguntas.models import Pregunta, ElegirRespuesta, PreguntasRespondidas
+from preguntas.models import Pregunta, ElegirRespuesta, PreguntasRespondidas, QuizUsuario
 from .forms import ElegirInlineFormset
 
 # Register your models here.
@@ -17,7 +17,7 @@ class PreguntaAdmin(admin.ModelAdmin):
     seach_fields = ['texto', 'preguntas__texto']
 
 class PreguntasRespondidasAdmin(admin.ModelAdmin):
-    list_display = ['usuario', 'pregunta', 'respuesta', 'correcta', 'puntaje_obtenido']
+    list_display = ['quizUser', 'pregunta', 'respuesta', 'correcta', 'puntaje_obtenido']
     class Meta:
         model = PreguntasRespondidas
 
@@ -25,3 +25,6 @@ class PreguntasRespondidasAdmin(admin.ModelAdmin):
 admin.site.register(PreguntasRespondidas, PreguntasRespondidasAdmin)
 admin.site.register(Pregunta, PreguntaAdmin)
 admin.site.register(ElegirRespuesta)
+admin.site.register(QuizUsuario)
+
+
