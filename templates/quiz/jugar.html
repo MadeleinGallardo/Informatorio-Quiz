@@ -5,6 +5,14 @@
 {% block content %}
 
 
-<h2>Proband, probando, aca seria todo el juego ya </h2>
+
+{% if not request.user.is_active %}
+<h2><p class="">Inicia sesión o registrate para poder jugar</p></h2>
+
+{% else %}
+<h2>Probando, probando, aca seria todo el juego ya </h2>
+
+
+{% endif %}
 
 {% endblock %}

@@ -12,7 +12,7 @@ def inicio(request):
 
 
 def registro(request):
-    
+
     data = {
         "form" : RegistroFormulario()
     }
