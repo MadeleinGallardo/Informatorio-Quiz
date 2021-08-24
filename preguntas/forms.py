@@ -27,8 +27,6 @@ class ElegirInlineFormset(forms.BaseInlineFormSet):
 #registrarse
 class RegistroFormulario(UserCreationForm):
     email = forms.EmailField(required= True)
-    nombre = forms.CharField( max_length= 30, required=True)
-    apellido = forms.CharField(max_length= 30, required= True)
 
     class Meta:
         model = User
