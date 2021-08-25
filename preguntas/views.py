@@ -30,7 +30,7 @@ def registro(request):
 
     return render(request, 'registration/registro.html', data)
 
-
+@login_required()
 def jugar(request):
     QuizUser, created = QuizUsuario.objects.get_or_create(usuario = request.user)
     if request.method == 'POST':
