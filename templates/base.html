@@ -25,6 +25,12 @@
               <li class="logo"><a href="{% url 'inicio' %}">Quiz Game</a></li>
               <li class="item"><a href="/jugar">Jugar <i class="fas fa-gamepad"></i></a></li>
               <li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li>
+              {%  if user.is_staff %}
+              <li class="">
+                  <a href="{% url 'admin:index' %}">Cargar preguntas <i class="fas fa-edit"></i> </a>
+              </li>
+              {% endif %}
+              
               {%  if user.is_authenticated %}
               <li>
                   <a href="{% url 'estadisticas' %}"> {{ user.username }} <i class="fas fa-user-circle"></i></a>
@@ -33,7 +39,6 @@
               <li class="">
                   <a href="{% url 'ranking' %}">Ranking  <i class="fas fa-trophy"></i></a>
               </li>
-
               <li class="item button">
                   <a href="{% url 'logout' %}">Cerrar sesión  <i class="fas fa-power-off"></i></a>
               </li>
