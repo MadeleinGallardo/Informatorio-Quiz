@@ -50,11 +50,19 @@ def jugar(request):
 
 @login_required()
 def ranking(request):
+    usuarios_top = QuizUsuario.objects.order_by('-puntaje_total')[:500]
+    contador_total = usuarios_top.count()
+    context = {
+        'Usuarios_ranking': usuarios_top,
+        'contador_total': contador_total,
+    }
 
-    return render(request, 'quiz/ranking.html',context=None)
+    return render(request, 'quiz/ranking.html', context)
+
 
 @login_required()
-def estadisticas(request):
+def estats_usuario(request):
+
     return render(request, 'quiz/estadisticas.html',context=None)
 
 

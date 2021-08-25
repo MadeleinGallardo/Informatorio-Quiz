@@ -6,7 +6,26 @@
 {% block content %}
 
 
-    <h2>Probando, probando, aca seria para ver rankings </h2>
+    <h1>Top {{contador_total}} Usuarios</h1>
+    <thead>
+        <table>
+            <tr>
+                <th>Posiciones</th>
+                <th>participante</th>
+                <th>puntaje</th>
+            </tr>
+        </table>
+        <tbody>
+            {% for Usuarios in usuarios_top %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ Usuarios.user.username }}</td>
+                <td>{{ usuarios_top.puntaje_total }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </thead>
+
 
 
 {% endblock %}
