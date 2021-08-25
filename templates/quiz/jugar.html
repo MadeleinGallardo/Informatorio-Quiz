@@ -10,9 +10,25 @@
 <h2><p class="">Inicia sesión o registrate para poder jugar</p></h2>
 
 {% else %}
+
 <h2>Probando, probando, aca seria todo el juego ya </h2>
 
-
+<!--Si no les sirve saquenlo-->
+<script>
+window.onload = updateClock;
+var totalTime = 50;
+function updateClock() {
+document.getElementById('contador').innerHTML = totalTime;
+if(totalTime==0){
+alert('Final :)');
+}else{
+totalTime-=1;
+setTimeout("updateClock()",1000);
+}
+}
+</script>
+<h2><center>Hice un temporizador</center></h2>
+<h3><center> Tiempo: <span id="contador"></span></center></h3>
 {% endif %}
 
 {% endblock %}
