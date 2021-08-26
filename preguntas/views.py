@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth import authenticate, login
 from django.core.exceptions import ObjectDoesNotExist
 from django.http.response import Http404
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from .forms import RegistroFormulario, IniciarSesionForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -48,7 +48,7 @@ def jugar(request):
         #Validar el intento
         QuizUser.validar_intento(pregunta_respondida, opcion_seleccionada)
 
-        return redirect(pregunta_respondida)
+        return redirect('resultado',pregunta_respondida.pk )
     
     else:
         pregunta = QuizUser.obtener_nuevas_preguntas()
@@ -61,6 +61,12 @@ def jugar(request):
 
     return render(request, 'quiz/jugar.html', context)
 
+def resultado_prgunta(request, pregunta_respondida_pk):
+    respondida = get_object_or_404(PreguntasRespondidas, pk = pregunta_respondida_pk)
+    context = {
+        'respondida': respondida
+    }
+    return render(request, 'quiz/resultados.html', context)
 
 @login_required()
 def ranking(request):

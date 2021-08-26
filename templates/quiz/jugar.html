@@ -48,11 +48,14 @@ setTimeout("updateClock()",1000);
         <form method = 'POST' class = 'form'>
             {% csrf_token %}
             <input type = 'hidden' name = 'pregunta_pk' value = '{{pregunta.pk}}'>
+           
             {%for opciones in pregunta.opciones.all %}
-                <input class = 'from-check-input' type= 'radio' name = 'respuesta_pk' value= '{{opcione.pk}}' id = 'choice-{{forloop.counter}}'>
-                <label class = 'form-check-label' for = 'forloop.counter'>
-                    {{opciones.texto}}
-                </label>
+                <p>
+                    <input class = 'from-check-input' type= 'radio' name = 'respuesta_pk' value= '{{opcione.pk}}' id = 'choice-{{forloop.counter}}'>
+                    <label class = 'form-check-label' for = 'forloop.counter'>
+                        {{opciones.texto}}
+                    </label>
+                </p>
             {%endfor%}
 
                 <button type = 'submit' class = 'btn btn-success'>
