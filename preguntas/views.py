@@ -1,6 +1,8 @@
 from django import forms
 from django.contrib.auth import authenticate, login
-from django.shortcuts import redirect, render
+from django.core.exceptions import ObjectDoesNotExist
+from django.http.response import Http404
+from django.shortcuts import get_object_or_404, redirect, render
 from .forms import RegistroFormulario, IniciarSesionForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -37,9 +39,21 @@ def jugar(request):
         pregunta_pk = request.POST.get('pregunta_pk')
         pregunta_respondida = QuizUser.intentos.select_related('pregunta').get(pregunta__pk= pregunta_pk)
         respuesta_pk = request.POST.get('respuesta_pk')
+
+        try:
+            opcion_seleccionada = pregunta_respondida.pregunta.opciones.get(pk = respuesta_pk)
+        except ObjectDoesNotExist:
+            raise Http404
+        
+        #Validar el intento
+        QuizUser.validar_intento(pregunta_respondida, opcion_seleccionada)
+
+        return redirect('resultado',pregunta_respondida.pk )
+    
     else:
-        respondidas = PreguntasRespondidas.objects.filter(quizUser = QuizUser).values_list('pregunta__pk', flat = True)
-        pregunta = Pregunta.objects.exclude(pk__in = respondidas)
+        pregunta = QuizUser.obtener_nuevas_preguntas()
+        if pregunta is not None:
+            QuizUser.crear_intentos(pregunta)
         context ={
            'pregunta':pregunta
         }
@@ -47,6 +61,12 @@ def jugar(request):
 
     return render(request, 'quiz/jugar.html', context)
 
+def resultado_pregunta(request, pregunta_respondida_pk):
+    respondida = get_object_or_404(PreguntasRespondidas, pk = pregunta_respondida_pk)
+    context = {
+        'respondida': respondida
+    }
+    return render(request, 'quiz/resultados.html', context)
 
 @login_required()
 def ranking(request):
