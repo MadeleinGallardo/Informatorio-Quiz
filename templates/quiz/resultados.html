@@ -13,21 +13,21 @@
     
     </p>
     
-        {%if respondida.respuesta.correcta%}
+        {% if respondida.respuesta.correcta %}
 
             <h4 class = 'text-success'>Tu respuesta es correcta</h4>
 
-        {%else%}
+        {% else %}
             <h4 class = text-danger>Tu respuesta es incorrecta</h4>
             {% for respuesta in respondida.pregunta.opciones.all %}
-                {{if respuesta.correcta}}
+                {% if  respuesta.correcta %}
                     
                     <h5 >La respuesta correcta es: <span class = 'text-success'>{{respuesta}}</span> </h5>
-                {%endif%}
-            {%endfor%}
-        {%endif%}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
 
-        <a href='{%url 'jugar'%}'>
+        <a href='{% url 'jugar' %}'>
             <button class= 'btn-success'>
                 Continuar 
             </button>
