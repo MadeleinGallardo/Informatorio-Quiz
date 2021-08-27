@@ -32,34 +32,36 @@ def registro(request):
 
     return render(request, 'registration/registro.html', data)
 
-@login_required()
+
 def jugar(request):
-    QuizUser, created = QuizUsuario.objects.get_or_create(usuario = request.user)
-    if request.method == 'POST':
-        pregunta_pk = request.POST.get('pregunta_pk')
-        pregunta_respondida = QuizUser.intentos.select_related('pregunta').get(pregunta__pk= pregunta_pk)
-        respuesta_pk = request.POST.get('respuesta_pk')
+    if request.user.is_active:
+        QuizUser, created = QuizUsuario.objects.get_or_create(usuario = request.user)
+        if request.method == 'POST':
+            pregunta_pk = request.POST.get('pregunta_pk')
+            pregunta_respondida = QuizUser.intentos.select_related('pregunta').get(pregunta__pk= pregunta_pk)
+            respuesta_pk = request.POST.get('respuesta_pk')
 
-        try:
-            opcion_seleccionada = pregunta_respondida.pregunta.opciones.get(pk = respuesta_pk)
-        except ObjectDoesNotExist:
-            raise Http404
+            try:
+                opcion_seleccionada = pregunta_respondida.pregunta.opciones.get(pk = respuesta_pk)
+            except ObjectDoesNotExist:
+                raise Http404
+            
+            #Validar el intento
+            QuizUser.validar_intento(pregunta_respondida, opcion_seleccionada)
+
+            return redirect('resultado',pregunta_respondida.pk )
         
-        #Validar el intento
-        QuizUser.validar_intento(pregunta_respondida, opcion_seleccionada)
+        else:
+            pregunta = QuizUser.obtener_nuevas_preguntas()
+            if pregunta is not None:
+                QuizUser.crear_intentos(pregunta)
+            context ={
+            'pregunta':pregunta
+            }
 
-        return redirect('resultado',pregunta_respondida.pk )
-    
-    else:
-        pregunta = QuizUser.obtener_nuevas_preguntas()
-        if pregunta is not None:
-            QuizUser.crear_intentos(pregunta)
-        context ={
-           'pregunta':pregunta
-        }
-    
+        return render(request, 'quiz/jugar.html', context)
 
-    return render(request, 'quiz/jugar.html', context)
+    return render(request, 'quiz/jugar.html', context=None)
 
 def resultado_pregunta(request, pregunta_respondida_pk):
     respondida = get_object_or_404(PreguntasRespondidas, pk = pregunta_respondida_pk)

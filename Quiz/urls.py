@@ -22,7 +22,7 @@ from preguntas import views
 urlpatterns = [
     path('', views.inicio, name='inicio'),
     path('admin/', admin.site.urls),
-    path('jugar/', views.jugar),
+    path('jugar/', views.jugar, name='jugar'),
     path('resultado/<int:pregunta_respondida_pk>/', views.resultado_pregunta, name='resultado'),
     path('registro/', views.registro, name="registro"),
     path('accounts/', include('django.contrib.auth.urls')),

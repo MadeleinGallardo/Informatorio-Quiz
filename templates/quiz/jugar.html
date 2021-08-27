@@ -4,33 +4,23 @@
 
 {% block content %}
 
+<article>
+    <section>
+        <h2>Como se juega:</h2>
+        <h3>
+            <p>Vamos a darte 5 preguntas que puede ser de cualquier categoria ya mencionada</p>
+            <p>Te la vamos a mostrar una a la ves y vas a tener 15 segundos para responderla</p>
+            <p>Una vez finalizado el quiz te mostraremos tu puntaje con tus respuestas</p>
+        </h3>
+
+    </section>
 
 
-{% if not request.user.is_active %}
-<h2><p class="">Inicia sesión o registrate para poder jugar</p></h2>
+{% if request.user.is_active %}
 
-{% else %}
 
-<h2>Probando, probando, aca seria todo el juego ya </h2>
 
-<!--Si no les sirve saquenlo-->
-<script>
-window.onload = updateClock;
-var totalTime = 50;
-function updateClock() {
-document.getElementById('contador').innerHTML = totalTime;
-if(totalTime==0){
-alert('Final :)');
-}else{
-totalTime-=1;
-setTimeout("updateClock()",1000);
-}
-}
-</script>
-<h2><center>Hice un temporizador</center></h2>
-<h3><center> Tiempo: <span id="contador"></span></center></h3>
-{% endif %}
-
+    {% if pregunta is None %}
 
 {% if pregunta is None %}
 
@@ -71,9 +61,59 @@ setTimeout("updateClock()",1000);
 
 
 
+        <div class = 'container'>
+            <div class = 'jumbotron my-4'>
+                <h1>Todas las preguntas fueron respondidas. Puedes ver tu lugar en el tablero de <a href = "{% url 'ranking' %}">posiciones</a></h1>
+                
+            </div>
+        </div>
+    {% else %}
 
+        <script>
+            window.onload = updateClock;
+            var totalTime = 0;
+            function updateClock() {
+            document.getElementById('contador').innerHTML = totalTime;
+            if(totalTime==0){
+            //alert('Final :)');
+            }else{
+            totalTime-=1;
+            setTimeout("updateClock()",1000);
+            }
+            }
+        </script>
+        <h3><center> Tiempo: <span id="contador"></span></center></h3>
 
+        <div class = 'container'>
+            <div class = 'jumbotron my-4'>
+                {{pregunta.texto}}
+            </div>
+            <form method = 'POST' class = 'form'>
+                {% csrf_token %}
+                <input type = 'hidden' name = 'pregunta_pk' value = '{{pregunta.pk}}'>
+            
+                {% for opciones in pregunta.opciones.all %}
+                    <p>
+                        <input class = 'from-check-input' type= 'radio' name = 'respuesta_pk' value= '{{opciones.pk}}' id = 'choice-{{forloop.counter}}'>
+                        <label class = 'form-check-label' for = 'forloop.counter'>
+                            {{opciones.texto}}
+                        </label>
+                    </p>
+                {% endfor %}
 
+                    <button type = 'submit' class = 'btn btn-success'>
+                        Enviar
+                    </button>
+            </form>
+        </div>
+
+    {% endif %}
+
+{% else %}
+<h3><p>Recuerda que tienes que Iniciar sesión para poder jugar</p></h3>
+{% endif %}
+
+</article>
 {% endblock %}
 
 
