@@ -21,52 +21,14 @@
 
 
     {% if pregunta is None %}
-
-{% if pregunta is None %}
-
-    <div class = 'container'>
-        <div class = 'jumbotron my-4'>
-            <h1>Todas las preguntas fueron respondidas. Puedes ver tu lugar en el tablero de posiciones</h1>
-            <a href ="{% url 'ranking' %}">Ranking</a>
-        </div>
-    </div>
-{% else %}
-    <div class = 'container'>
-        <div class = 'jumbotron my-4'>
-            {{pregunta.texto}}
-        </div>
-        <form method = 'POST' class = 'form'>
-            {% csrf_token %}
-            <input type = 'hidden' name = 'pregunta_pk' value = '{{pregunta.pk}}'>
-           
-            {% for opciones in pregunta.opciones.all %}
-                <div class = 'form-check mx-4'>
-                    <input class = 'from-check-input' type= 'radio' name = 'respuesta_pk' value= '
-                    {{opciones.pk}}' id ='choice-{{forloop.counter}}'>
-                    <label class = 'form-check-label' for = 'forloop.counter'>
-                        {{opciones.texto}}
-                    </label>
-                </div>
-            {% endfor %}
-
-                <button type ='submit' class ='btn btn-success'>
-                    Enviar
-                </button>
-        </form>
-    </div>
-
-{% endif %}
- 
     
-
-
-
-        <div class = 'container'>
-            <div class = 'jumbotron my-4'>
-                <h1>Todas las preguntas fueron respondidas. Puedes ver tu lugar en el tablero de <a href = "{% url 'ranking' %}">posiciones</a></h1>
-                
-            </div>
+    <div class = 'container'>
+        <div class = 'jumbotron my-4'>
+            <h1>Todas las preguntas fueron respondidas. Puedes ver tu lugar en el tablero de <a href = "{% url 'ranking' %}">posiciones</a></h1>
+            
         </div>
+    </div>
+
     {% else %}
 
         <script>
