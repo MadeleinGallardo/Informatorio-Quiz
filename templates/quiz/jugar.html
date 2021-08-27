@@ -37,7 +37,7 @@ setTimeout("updateClock()",1000);
     <div class = 'container'>
         <div class = 'jumbotron my-4'>
             <h1>Todas las preguntas fueron respondidas. Puedes ver tu lugar en el tablero de posiciones</h1>
-            <a href = ''>Ranking</a>
+            <a href = '{url 'ranking'}'>Ranking</a>
         </div>
     </div>
 {%else%}
@@ -50,12 +50,12 @@ setTimeout("updateClock()",1000);
             <input type = 'hidden' name = 'pregunta_pk' value = '{{pregunta.pk}}'>
            
             {%for opciones in pregunta.opciones.all %}
-                <p>
+                <div class = 'form-check mx-4'>
                     <input class = 'from-check-input' type= 'radio' name = 'respuesta_pk' value= '{{opcione.pk}}' id = 'choice-{{forloop.counter}}'>
                     <label class = 'form-check-label' for = 'forloop.counter'>
                         {{opciones.texto}}
                     </label>
-                </p>
+                </div>
             {%endfor%}
 
                 <button type = 'submit' class = 'btn btn-success'>
