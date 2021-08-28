@@ -75,9 +75,14 @@ def ranking(request):
     usuarios_top = QuizUsuario.objects.order_by('-puntaje_total')[:500]
     contador_total = usuarios_top.count()
     context = {
-        'Usuarios_ranking': usuarios_top,
+        'usuarios_top': usuarios_top,
         'contador_total': contador_total,
+        
     }
+    print(usuarios_top)
+    for x in usuarios_top:
+       print( x.__dict__)
+       #print( x.user.__dict__)
 
     return render(request, 'quiz/ranking.html', context)
 
