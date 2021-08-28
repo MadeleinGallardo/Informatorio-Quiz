@@ -5,15 +5,7 @@
 {% block content %}
 
 <article>
-    <!-- <section>
-        <h2>Como se juega:</h2>
-        <h3>
-            <p>Vamos a darte 5 preguntas que puede ser de cualquier categoria ya mencionada</p>
-            <p>Te la vamos a mostrar una a la ves y vas a tener 15 segundos para responderla</p>
-            <p>Una vez finalizado el quiz te mostraremos tu puntaje con tus respuestas</p>
-        </h3>
-
-    </section> -->
+    
 
 
     {% if request.user.is_active %}
@@ -37,25 +29,7 @@
         
         <div id="juego">
             <h3 id="titulo-tiempo"><center> Tiempo: <span id="contador"></span></center></h3>
-        </div>
-        
-        <div id="pre-juego">
-            <p id="parrafo-juego">El juego comienza en  <span id="contador2"> </span> segundos</p> 
-            <div>
-                <h2 class="titulo-reglas animate__bounceIn">Como se juega:</h2>
-                <h3 class="reglas animate__bounceIn">
-                <p>Tendras que responder 5 preguntas aleatorias de categorias ya mencionadas.</p>
-                <p>Se mostraran una a la vez y vas a tener 15 segundos para responderla.</p>
-                <p>Una vez finalizado el quiz te mostraremos tu puntaje con tus respuestas.</p>
-                </h3>
-                <img class="jugar-instrucciones" src="/static/img/jugar-instrucciones.jpg" alt="">
-            </div>
-            <!-- <div id="selesion">
-                <p>El tiempo se acabo</p> 
-            </div> -->
-        </div>
-
-        
+        </div>        
 
         <div id="pregunta-visible" class = 'container'>
             <div class = 'jumbotron my-4 titulo-pregunta'>
@@ -82,7 +56,7 @@
 
         <script>
             window.onload = updateClock;
-            var totalTime = 40;
+            var totalTime = 15;
         </script>
 
     {% endif %}
