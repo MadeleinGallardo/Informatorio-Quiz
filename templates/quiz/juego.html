@@ -11,19 +11,7 @@
 
 
 
-    {% if pregunta is None %}
-    
-    <div class = 'container p-none'>
-        <div class = 'jumbotron my-4'>
-            <h1 class="pregunta-none">Todas las preguntas fueron respondidas</h1>
-            <h1 class="pregunta-none">Puedes ver tu lugar en el <a class="a-none" href = "{% url 'ranking' %}">tablero de posiciones</a></h1>
-            <img src="/static/img/provincia-chaco.jpg" alt="">
-            
-            
-        </div>
-    </div>
-
-    {% else %}
+   
 
         
     
@@ -45,7 +33,7 @@
             var totalTime = 30;
         </script>
 
-    {% endif %}
+    
 
 {% else %}
 <main>
