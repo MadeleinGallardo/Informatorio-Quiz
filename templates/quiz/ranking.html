@@ -7,24 +7,26 @@
 
 
     <h1>Top {{contador_total}} Usuarios</h1>
-    <thead>
+    
         <table class = 'table table-striped table-bodered'>
-            <tr>
-                <th>Posiciones</th>
-                <th>participante</th>
-                <th>puntaje</th>
-            </tr>
+            <thead>
+                <tr>
+                    <th>Posiciones</th>
+                    <th>participante</th>
+                    <th>puntaje</th>
+                </tr>
+            </thead>
+        
+            <tbody>
+                {% for Usuarios in Usuarios_ranking %}
+                    <tr>
+                        <th>{{ forloop.counter }}</th>
+                        <th>{{ Usuarios.usuario.username }}</th>
+                        <th>{{ Usuarios.puntaje_total }}</th>
+                    </tr>
+                {% endfor %}
+            </tbody>
         </table>
-        <tbody>
-            {% for Usuarios in usuarios_top %}
-            <tr>
-                <td>{{ forloop.counter }}</td>
-                <td>{{ Usuarios.user.username }}</td>
-                <td>{{ usuarios_top.puntaje_total }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </thead>
 
 
 
