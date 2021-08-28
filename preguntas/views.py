@@ -13,6 +13,9 @@ from .models import PreguntasRespondidas, QuizUsuario, Pregunta
 def inicio(request):
     return render(request,'quiz/inicio.html', context=None)
 
+def juego(request):
+    return render(request,'quiz/juego.html', context=None)
+
 
 def registro(request):
 
