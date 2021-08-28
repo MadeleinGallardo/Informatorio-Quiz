@@ -15,14 +15,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rampart+One&family=Teko:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Hina+Mincho&family=Rampart+One&family=Teko:wght@300&display=swap" rel="stylesheet">
 </head>
-<body>
+<body body onload="myFunction()">
     <header>
         <!--Navegador-->
         <nav>
             <ul class="menu">
-              <li class="logo"><a href="{% url 'inicio' %}">Quiz Game</a></li>
+              <li class="logo"><a href="{% url 'inicio' %}"><img src="/static/img/quiz-principal.png" alt=""></a></li>
               <li class="item"><a href="/jugar">Jugar <i class="fas fa-gamepad"></i></a></li>
               <li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li>
               {%  if user.is_staff %}
