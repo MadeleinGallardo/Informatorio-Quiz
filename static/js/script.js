@@ -69,4 +69,8 @@ function updateClock() {
     setTimeout("updateClock()",1000);
     }
 }
-    
+
+
+function omitir_temp(){
+    totalTime = 17
+}
