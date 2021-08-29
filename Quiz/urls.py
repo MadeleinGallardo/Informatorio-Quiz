@@ -28,7 +28,9 @@ urlpatterns = [
     path('registro/', views.registro, name="registro"),
     path('accounts/', include('django.contrib.auth.urls')),
     path('ranking/', views.ranking, name='ranking'),
-    path('estadisticas/', views.estats_usuario, name='estadisticas')
+    path('estadisticas/', views.estadisticas, name='estadisticas'),
+    
+    
 
 
 ]

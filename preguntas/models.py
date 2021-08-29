@@ -29,6 +29,10 @@ class QuizUsuario(models.Model):
     usuario = models.OneToOneField(User, on_delete= models.CASCADE)
     puntaje_total = models.DecimalField(verbose_name= 'Puntaje Total', default= 0, decimal_places= 2, max_digits= 10)
 
+    def partidas_jugadas(self):
+        pass
+
+
     def crear_intentos(self, pregunta):
         intento = PreguntasRespondidas(pregunta=pregunta, quizUser = self)
         intento.save()
@@ -36,10 +40,14 @@ class QuizUsuario(models.Model):
     def obtener_nuevas_preguntas(self):
         respondidas = PreguntasRespondidas.objects.filter(quizUser = self).values_list('pregunta__pk', flat = True)
         preguntas_restantes = Pregunta.objects.exclude(pk__in = respondidas)
-        
         if not preguntas_restantes.exists():
             return None
+        
+
         return random.choice(preguntas_restantes)
+
+        
+
     
     def validar_intento(self, pregunta_respondida, respuesta_seleccionada):
         if pregunta_respondida.pregunta_id != respuesta_seleccionada.pregunta_id:
@@ -74,3 +82,18 @@ class PreguntasRespondidas(models.Model):
     respuesta = models.ForeignKey(ElegirRespuesta, on_delete= models.CASCADE, null = True )
     correcta = models.BooleanField(verbose_name= '¿Es esta la respuesta correcta?', default= False, null= False)
     puntaje_obtenido = models.DecimalField(verbose_name= 'Puntaje Obtenido ', default= 0,decimal_places= 3, max_digits = 6)
+
+
+class UserActivityLog(models.Model):
+    user = models.ForeignKey(User, on_delete = models.CASCADE)
+    login_date = models.DateTimeField(null = True)
+    logout_date = models.DateTimeField(null = True)
+    created = models.DateTimeField(auto_now_add = True, editable = False)
+
+    
+    class Meta:
+        ordering = ['user', 'created']
+
+    
+    
+    

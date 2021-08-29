@@ -29,15 +29,18 @@
               <li class="">
                   <a href="{% url 'admin:index' %}">Cargar preguntas <i class="fas fa-edit"></i> </a>
               </li>
+              <li>
+                <a href="{% url 'estadisticas' %}"> Estadísticas de acceso <i class="fas fa-chart-bar"></i></a>
+            </li>
               {% endif %}
               
               {%  if user.is_authenticated %}
-              <li>
-                  <a href="{% url 'estadisticas' %}"> {{ user.username }} <i class="fas fa-user-circle"></i></a>
-              </li>
               </li>
               <li class="">
                   <a href="{% url 'ranking' %}">Ranking  <i class="fas fa-trophy"></i></a>
+              </li>
+              <li>
+                <a href=""> {{ user.username }} <i class="fas fa-user-circle"></i></a>
               </li>
               <li class="item button">
                   <a href="{% url 'logout' %}">Cerrar sesión  <i class="fas fa-power-off"></i></a>
