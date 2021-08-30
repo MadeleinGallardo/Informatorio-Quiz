@@ -1,29 +1,32 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Estadisticas de {{ user.username }}{% endblock %}
+{% block title %}Estadísticas de acceso y participantes{% endblock %}
 
 
 {% block content %}
 
 
-    <h1>Estadisticas personales de {{user.username}}</h1>
-    <thead>
-        <table>
-            <tr>
-                <th>Respuestas acertadas|</th>
-                <th>tiempo empleado|</th>
-                <th>puntaje final</th>
+    <h1 class="efectos2">Estadísticas de acceso y participantes</h1>
+    <h1 class="efectos2">Cantidad de usuarios registrados en la plataforma: {{ contador }}</h1>
+    <table class = 'table table-striped table-bodered'>
+        <thead>
+             <tr class="efectos2">
+                <th>Usuario</th>
+                <th>Último inicio de sesión</th>
+                <th>Cierre de sesión</th>
             </tr>
-        </table>
+        </thead>
+       
         <tbody>
-            
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
+            {% for user in usuarios %}
+            <tr class="efectos3">
+                <th>{{ user.user.username }}</th>
+                <th>{{ user.login_date }}</th>
+                <th>{{ user.logout_date }}</th>
             </tr>
-            
+            {% endfor %}
         </tbody>
+    </table>
 
 
 {% endblock %}

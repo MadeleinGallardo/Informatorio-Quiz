@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Aniversario de Provincialización del Chaco{% endblock %}
+
+{% block content %}
+
+<article>
+   
+
+    {% if request.user.is_active %}
+
+    
+
+   
+
+        
+    
+        <div id="pre-juego">
+            <p id="parrafo-juego">El juego comienza en  <span id="contador2"> </span> segundos</p> 
+            <button id="omitir-boton" class = 'btn btn-success boton-pregunta' onclick="omitir_temp()">omitir y jugar </button>
+            <div>
+                <h2 class="titulo-reglas animate__bounceIn">Como se juega:</h2>
+                <h3 class="reglas animate__bounceIn">
+                <p>Tendras que responder 5 preguntas aleatorias de categorias ya mencionadas.</p>
+                <p>Se mostraran una a la vez y vas a tener 15 segundos para responderla.</p>
+                <p>Una vez finalizado el quiz, podras ver tu puntaje en la tabla de posiciones.</p>
+                </h3>
+                <img class="jugar-instrucciones" src="/static/img/jugar-instrucciones.jpg" alt="">
+            </div>
+        </div>
+
+        <script>
+            window.onload = updateClock2;
+            var totalTime = 30;
+        </script>
+
+    
+
+{% else %}
+<main>
+    <h3 class="login-juego"><p>Recuerda que tienes que <a class="a-juego" href ="{% url 'login' %}">Iniciar sesión</a> para poder jugar</p></h3>
+    <div class="instrucciones">
+        <div id="pre-juego">
+            <h2 class="titulo-reglas animate__bounceIn">Como se juega:</h2>
+            <h3 class="reglas animate__bounceIn">
+                <p>Tendras que responder 5 preguntas aleatorias de categorias ya mencionadas.</p>
+                <p>Se mostraran una a la vez y vas a tener 15 segundos para responderla.</p>
+                <p>Una vez finalizado el quiz, podras ver tu puntaje en la tabla de posiciones.</p>
+            </h3>
+            <div><img src="/static/img/aniversario-chaco.png" alt=""></div>
+        </div>
+    </div>
+</main>
+{% endif %}
+
+</article>
+{% endblock %}

@@ -1,17 +1,22 @@
 from django import forms
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, user_logged_in, user_logged_out
 from django.core.exceptions import ObjectDoesNotExist
 from django.http.response import Http404
 from django.shortcuts import get_object_or_404, redirect, render
 from .forms import RegistroFormulario, IniciarSesionForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .models import PreguntasRespondidas, QuizUsuario, Pregunta
-
+from .models import PreguntasRespondidas, QuizUsuario, Pregunta, UserActivityLog
+from django.dispatch import receiver
+from django.utils import timezone
+from django.contrib.auth.models import User
 # Create your views here.
 
 def inicio(request):
     return render(request,'quiz/inicio.html', context=None)
+
+def juego(request):
+    return render(request,'quiz/juego.html', context=None)
 
 
 def registro(request):
@@ -75,18 +80,41 @@ def ranking(request):
     usuarios_top = QuizUsuario.objects.order_by('-puntaje_total')[:500]
     contador_total = usuarios_top.count()
     context = {
-        'Usuarios_ranking': usuarios_top,
+        'usuarios_top': usuarios_top,
         'contador_total': contador_total,
+        
     }
+    print(usuarios_top)
+    for x in usuarios_top:
+       print( x.__dict__)
+       #print( x.user.__dict__)
 
     return render(request, 'quiz/ranking.html', context)
 
 
 @login_required()
-def estats_usuario(request):
+def estadisticas(request):
+    usuarios = UserActivityLog.objects.order_by('-login_date')[:20]
+    contador = User.objects.count()
+    context = {
+        'usuarios': usuarios,
+        'contador': contador,
 
-    return render(request, 'quiz/estadisticas.html',context=None)
+    }
 
+    return render(request, 'quiz/estadisticas.html', context)
+
+
+@receiver(user_logged_in)
+def register_user_login(sender, request, user, **kwargs):
+    obj = UserActivityLog.objects.create(user = user, login_date = timezone.now())
+    request.session['user_activity_log_id'] = obj.id
+
+@receiver(user_logged_out)
+def register_user_logout(sender, request, user, **kwargs):
+    UserActivityLog.objects.filter(id = request.session['user_activity_log_id']).update(
+        logout_date = timezone.now()
+    )
 
 
 

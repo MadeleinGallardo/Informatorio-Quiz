@@ -23,11 +23,14 @@ urlpatterns = [
     path('', views.inicio, name='inicio'),
     path('admin/', admin.site.urls),
     path('jugar/', views.jugar, name='jugar'),
+    path('juego/', views.juego, name='juego'),
     path('resultado/<int:pregunta_respondida_pk>/', views.resultado_pregunta, name='resultado'),
     path('registro/', views.registro, name="registro"),
     path('accounts/', include('django.contrib.auth.urls')),
     path('ranking/', views.ranking, name='ranking'),
-    path('estadisticas/', views.estats_usuario, name='estadisticas')
+    path('estadisticas/', views.estadisticas, name='estadisticas'),
+    
+    
 
 
 ]

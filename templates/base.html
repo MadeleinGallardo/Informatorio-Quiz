@@ -18,26 +18,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Hina+Mincho&family=Rampart+One&family=Teko:wght@300&display=swap" rel="stylesheet">
 </head>
 <body body onload="myFunction()">
+  <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v11.0" nonce="yP0KYUb3"></script>
     <header>
         <!--Navegador-->
         <nav>
             <ul class="menu">
               <li class="logo"><a href="{% url 'inicio' %}"><img src="/static/img/quiz-principal.png" alt=""></a></li>
-              <li class="item"><a href="/jugar">Jugar <i class="fas fa-gamepad"></i></a></li>
+              <li class="item"><a href="/juego">Jugar <i class="fas fa-gamepad"></i></a></li>
               <li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li>
               {%  if user.is_staff %}
               <li class="">
                   <a href="{% url 'admin:index' %}">Cargar preguntas <i class="fas fa-edit"></i> </a>
               </li>
+              <li>
+                <a href="{% url 'estadisticas' %}"> Estadísticas de acceso <i class="fas fa-chart-bar"></i></a>
+            </li>
               {% endif %}
               
               {%  if user.is_authenticated %}
-              <li>
-                  <a href="{% url 'estadisticas' %}"> {{ user.username }} <i class="fas fa-user-circle"></i></a>
-              </li>
               </li>
               <li class="">
                   <a href="{% url 'ranking' %}">Ranking  <i class="fas fa-trophy"></i></a>
+              </li>
+              <li>
+                <a href=""> {{ user.username }} <i class="fas fa-user-circle"></i></a>
               </li>
               <li class="item button">
                   <a href="{% url 'logout' %}">Cerrar sesión  <i class="fas fa-power-off"></i></a>
