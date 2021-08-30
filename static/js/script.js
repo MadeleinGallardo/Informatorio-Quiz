@@ -58,3 +58,7 @@ function updateClock2() {
     setTimeout("updateClock2()",1000);
     }
 }
+
+function omitir_temp(){
+    location.href="/jugar"
+}
