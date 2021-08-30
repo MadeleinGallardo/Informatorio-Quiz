@@ -27,7 +27,7 @@
               <li class="logo"><a href="{% url 'inicio' %}"><img src="/static/img/quiz-principal.png" alt=""></a></li>
               <li class="item"><a href="/juego">Jugar <i class="fas fa-gamepad"></i></a></li>
               <li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li>
-              {%  if user.is_staff %}
+              {% if user.is_staff %}
               <li class="">
                   <a href="{% url 'admin:index' %}">Cargar preguntas <i class="fas fa-edit"></i> </a>
               </li>
@@ -36,7 +36,7 @@
             </li>
               {% endif %}
               
-              {%  if user.is_authenticated %}
+              {% if user.is_authenticated %}
               </li>
               <li class="">
                   <a href="{% url 'ranking' %}">Ranking  <i class="fas fa-trophy"></i></a>
