@@ -3,30 +3,39 @@
 {% block title %}Posiciones{% endblock %}
 
 
+
+
 {% block content %}
 
-
-    <h1>Top {{contador_total}} Usuarios</h1>
+<div class="efectos">
+    <script type="text/javascript" src="https://dl.dropboxusercontent.com/s/qhmfmwu7ckig9l2/fartificiales.js"></script>
+    <h1 class="efectos1">Top {{contador_total}} Usuarios</h1>
+    
     
         <table class = 'table table-striped table-bodered'>
             <thead>
-                <tr>
+                 <tr class="efectos2">
                     <th>Posiciones</th>
-                    <th>participante</th>
-                    <th>puntaje</th>
+                    <th>Participante</th>
+                    <th>Puntaje</th>
                 </tr>
             </thead>
-        
+           
             <tbody>
-                {% for Usuarios in Usuarios_ranking %}
-                    <tr>
-                        <th>{{ forloop.counter }}</th>
-                        <th>{{ Usuarios.usuario.username }}</th>
-                        <th>{{ Usuarios.puntaje_total }}</th>
-                    </tr>
+                {% for usuario in usuarios_top %}
+                <tr class="efectos3">
+                    <th>{{ forloop.counter }}</th>
+                    <th>{{ usuario.usuario.username }}</th>
+                    <th>{{ usuario.puntaje_total }}</th>
+                </tr>
                 {% endfor %}
             </tbody>
         </table>
+ 
+</div>
+
+
+    
 
 
 

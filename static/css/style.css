@@ -180,11 +180,11 @@ font-weight: bold;
 }
 
 #juego{
-display: none;
+display: block;
 }
 
 #pregunta-visible{
-  display: none;
+  display: block;
   margin-left: 15%;
   margin-top: 100px;
   margin-bottom: 150px;
@@ -210,16 +210,6 @@ display: none;
 .jugar-instrucciones{
   margin-left: 10%;
 }
-
-#selesion{
-display: none;
-text-align: center;
-align-items: center;
-background-color: transparent;
-width: 600px;
-height: 600px;
-}
-
 
 #pre-juego{
 display: block;
@@ -341,4 +331,74 @@ display: none;
 .titulo-reglas{
   font-family: 'Bebas Neue', cursive;
   font-weight: bold;
+}
+
+.efectos{
+  margin-left: 15%;
+  width: 900px;
+  height: 900px;
+}
+
+.efectos1{
+  font-family: 'Bebas Neue', cursive; 
+  font-size: 60px;
+
+}
+
+.efectos2{
+  font-family: 'Teko', sans-serif;
+  font-size: 50px;
+}
+
+.efectos3{
+  font-family: 'Hina Mincho', serif; 
+  font-size: 30px;
+  
+}
+
+.titulo-respuesta{
+  font-family: 'Bebas Neue', cursive; 
+  font-size: 60px;
+  color: black;
+}
+
+
+.respuesta{
+  margin-top: 5px;
+  font-family: 'Teko', sans-serif;
+  font-size: 45px;
+  font-weight: bold;
+}
+
+.solucion-v{
+  margin-top: 10px;
+  font-family: 'Bebas Neue', cursive; 
+  font-size: 35px;
+  font-weight: bold;
+  color: rgb(15, 138, 15);
+}
+
+.solucion-f{
+  margin-top: 10px;
+  font-family: 'Bebas Neue', cursive; 
+  font-size: 35px;
+  font-weight: bold;
+  color: rgb(223, 28, 28);
+}
+
+.solucion{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-family: 'Bebas Neue', cursive; 
+  font-size: 35px;
+  font-weight: bold;
+  color: rgb(3, 3, 3);
+}
+
+.boton-continuar{
+  margin-top: 75px;
+  margin-left: 40%;
+  align-items: center;
+  margin-bottom: 75px;
+  
 }
