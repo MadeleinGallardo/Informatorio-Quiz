@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Estadísticas de acceso y participantes{% endblock %}
+
+
+{% block content %}
+
+
+    <h1 class="efectos2">Estadísticas de acceso y participantes</h1>
+    <h1 class="efectos2">Cantidad de usuarios registrados en la plataforma: {{ contador }}</h1>
+    <table class = 'table table-striped table-bodered'>
+        <thead>
+             <tr class="efectos2">
+                <th>Usuario</th>
+                <th>Último inicio de sesión</th>
+                <th>Cierre de sesión</th>
+            </tr>
+        </thead>
+       
+        <tbody>
+            {% for user in usuarios %}
+            <tr class="efectos3">
+                <th>{{ user.user.username }}</th>
+                <th>{{ user.login_date }}</th>
+                <th>{{ user.logout_date }}</th>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

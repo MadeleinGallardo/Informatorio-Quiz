@@ -1,0 +1,404 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+}
+body {
+  font-family: sans-serif;
+  background-size: cover;
+  background-image: url(../img/fondo-quiz.png);
+}
+
+
+.botoncito{
+background-color: #e64646;
+}
+
+nav {
+  background: rgb(0, 0, 0);
+  padding-right: 20px;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+.logo a:hover {
+  text-decoration: none;
+}
+.menu li {
+  font-size: 16px;
+  padding: 15px 5px;
+  white-space: nowrap;
+}
+.logo a,
+.toggle a {
+  font-size: 20px;
+}
+.button.secondary {
+  border-bottom: 1px #444 solid;
+}
+
+
+/* Celular menu */
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.toggle {
+  order: 1;
+}
+.item.button {
+  order: 2;
+}
+.item {
+  width: 100%;
+  text-align: center;
+  order: 3;
+  display: none;
+}
+.item.active {
+  display: block;
+}
+/* Tablet menu */
+@media all and (min-width: 600px) {
+  .menu {
+    justify-content: center;
+  }
+  .logo {
+    flex: 1;
+  }
+  .toggle {
+    flex: 1;
+    text-align: right;
+  }
+  .item.button {
+    width: auto;
+    order: 1;
+    display: block;
+  }
+  .toggle {
+    order: 2;
+  }
+  .button.secondary {
+    border: 0;
+  }
+  .button a {
+    padding: 7.5px 15px;
+    background: teal;
+    border: 1px #006d6d solid;
+  }
+  .button.secondary a {
+    background: transparent;
+  }
+  .button a:hover {
+    text-decoration: none;
+  }
+  .button:not(.secondary) a:hover {
+    background: #006d6d;
+    border-color: #005959;
+  }
+  .button.secondary a:hover {
+    color: #ddd;
+  }
+}
+/* Escritorio menu */
+@media all and (min-width: 900px) {
+  .item {
+    display: block;
+    width: auto;
+  }
+  .toggle {
+    display: none;
+  }
+  .logo {
+    order: 0;
+  }
+  .item {
+    order: 1;
+  }
+  .button {
+    order: 2;
+  }
+  .menu li {
+    padding: 15px 10px;
+  }
+  .menu li.button {
+    padding-right: 0;
+  }
+}
+
+
+.caja1{
+  display: flex;
+  font-size: 30 px;
+  background-color: transparent;
+ 
+  margin: 10%;
+}
+
+
+/*Esto despues lo borro*/
+.prueba-inicio{
+font-size: 60px;
+}
+
+footer{
+display: block;
+background: rgb(0, 0, 0);
+font-family: sans-serif;
+text-align: center;
+color: seashell;
+      
+}
+
+.fas{
+color: #e64646;
+}
+
+h2{
+color: rgb(19, 6, 94);
+
+}
+.portada{
+font-family: 'Teko', sans-serif;
+font-size: 50px;
+}
+
+.portada-lista{
+font-family: 'Teko', sans-serif;
+font-size: 26px;
+font-weight: bold;
+}
+
+#juego{
+display: block;
+}
+
+#pregunta-visible{
+  display: block;
+  margin-left: 15%;
+  margin-top: 100px;
+  margin-bottom: 150px;
+}
+
+.titulo-pregunta{
+  font-family: 'Bebas Neue', cursive;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.opciones-pregunta{
+  font-family: 'Bebas Neue', cursive;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.boton-pregunta{
+  margin-left: 35%;
+  background-color: #0a5e07;
+}
+
+.jugar-instrucciones{
+  margin-left: 10%;
+}
+
+#pre-juego{
+display: block;
+margin-left: 25%;
+width: 800px;
+height: 700px;
+}
+
+#parrafo-juego{
+font-size: 35px;
+font-weight: bold;
+font-family: 'Teko', sans-serif;
+
+}
+
+#titulo-tiempo{
+  font-size: 30px;
+  font-weight: bold;
+  color: #064886;
+}
+
+.inicio-sesion{
+margin-bottom: 100px;
+margin-top: 100px;
+}
+
+.registro{
+margin-bottom: 10px;
+
+}
+
+/* Center the loader */
+#loader {
+position: absolute;
+left: 50%;
+top: 50%;
+z-index: 1;
+width: 120px;
+height: 120px;
+margin: -76px 0 0 -76px;
+border: 16px solid #f3f3f3;
+border-radius: 50%;
+border-top: 16px solid #1db062;
+border-right: 16px solid #ffffff;
+border-bottom: 16px solid  #94c9e9;
+border-left: 16px solid #e7f527;
+-webkit-animation: spin 2s linear infinite;
+animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+0% { -webkit-transform: rotate(0deg); }
+100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+0% { transform: rotate(0deg); }
+100% { transform: rotate(360deg); }
+}
+
+/* Add animation to "page content" */
+.animate-bottom {
+position: relative;
+-webkit-animation-name: animatebottom;
+-webkit-animation-duration: 1s;
+animation-name: animatebottom;
+animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+from { bottom:-100px; opacity:0 } 
+to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom { 
+from{ bottom:-100px; opacity:0 } 
+to{ bottom:0; opacity:1 }
+}
+
+#myDiv {
+display: none;
+
+}
+
+.instrucciones{
+  display: block;
+  margin-left: 10px;
+  margin-bottom: 30px;
+}
+
+.login-juego{
+  font-family:'Bebas Neue', cursive;
+}
+
+.a-juego{
+  color: #198615;
+}
+
+.pregunta-none{
+  font-family:'Bebas Neue', cursive;
+  
+
+}
+
+.a-none{
+  color: #198615;
+}
+
+.p-none{
+  display: block;
+  margin-left: 25%;
+}
+.reglas>p{
+  font-family: 'Hina Mincho', serif;
+  font-weight: bold;
+  font-size: 28px;
+}
+
+.titulo-reglas{
+  font-family: 'Bebas Neue', cursive;
+  font-weight: bold;
+}
+
+.efectos{
+  margin-left: 15%;
+  width: 900px;
+  height: 900px;
+}
+
+.efectos1{
+  font-family: 'Bebas Neue', cursive; 
+  font-size: 60px;
+
+}
+
+.efectos2{
+  font-family: 'Teko', sans-serif;
+  font-size: 50px;
+}
+
+.efectos3{
+  font-family: 'Hina Mincho', serif; 
+  font-size: 30px;
+  
+}
+
+.titulo-respuesta{
+  font-family: 'Bebas Neue', cursive; 
+  font-size: 60px;
+  color: black;
+}
+
+
+.respuesta{
+  margin-top: 5px;
+  font-family: 'Teko', sans-serif;
+  font-size: 45px;
+  font-weight: bold;
+}
+
+.solucion-v{
+  margin-top: 10px;
+  font-family: 'Bebas Neue', cursive; 
+  font-size: 35px;
+  font-weight: bold;
+  color: rgb(15, 138, 15);
+}
+
+.solucion-f{
+  margin-top: 10px;
+  font-family: 'Bebas Neue', cursive; 
+  font-size: 35px;
+  font-weight: bold;
+  color: rgb(223, 28, 28);
+}
+
+.solucion{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-family: 'Bebas Neue', cursive; 
+  font-size: 35px;
+  font-weight: bold;
+  color: rgb(3, 3, 3);
+}
+
+.boton-continuar{
+  margin-top: 75px;
+  margin-left: 40%;
+  align-items: center;
+  margin-bottom: 75px;
+  
+}

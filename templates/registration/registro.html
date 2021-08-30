@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Registrarse{% endblock %}
+
+
+{% block content %}
+{% load crispy_forms_tags %}
+  
+    <div class="container registro">
+        <br>
+        <br>
+        
+        <div class="row">
+            <div class="col-12 col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h2>Registro de usuario</h2>
+                        <hr>
+                        <form action="" method = "post">
+                            {% csrf_token %}
+                            {{ form | crispy }}
+                            <br>
+                            
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+
+                                <input type="submit" value="Registrarte" class="btn btn-success float-right">
+                            </div>
+                    
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
