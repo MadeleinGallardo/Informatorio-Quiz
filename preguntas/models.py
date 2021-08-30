@@ -51,7 +51,7 @@ class QuizUsuario(models.Model):
     
     def validar_intento(self, pregunta_respondida, respuesta_seleccionada):
         if pregunta_respondida.pregunta_id != respuesta_seleccionada.pregunta_id:
-            return
+            return 
         
         pregunta_respondida.repuesta_seleccionada = respuesta_seleccionada
         
@@ -71,8 +71,9 @@ class QuizUsuario(models.Model):
     def actualizar_puntaje(self):
         puntaje_actualizado = self.intentos.filter(correcta=True).aggregate(
             models.Sum('puntaje_obtenido')) ['puntaje_obtenido__sum']
-        self.puntaje_total = puntaje_actualizado
+        self.puntaje_total = puntaje_actualizado or 0
         self.save()
+        
 
 
 
