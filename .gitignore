@@ -26,7 +26,10 @@ share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+<<<<<<< HEAD
 *.pyc
+=======
+>>>>>>> 90f14e4edd8fc4c02dbd37ef1de4f60d07545c12
 MANIFEST
 
 # PyInstaller
@@ -129,6 +132,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 =======
@@ -136,3 +140,5 @@ dmypy.json
 
 
 >>>>>>> 91c2fc28f7a8ed556a20a56266636c2efe082b7c
+=======
+>>>>>>> 90f14e4edd8fc4c02dbd37ef1de4f60d07545c12
