@@ -41,7 +41,7 @@
             
                 {% for opciones in pregunta.opciones.all %}
                     <p>
-                        <input class = 'from-check-input' type= 'radio' name = 'respuesta_pk' value= '{{opciones.pk}}' id = 'choice-{{forloop.counter}}'>
+                        <input class = 'from-check-input' type= 'radio' name = 'respuesta_pk' value= '{{opciones.pk}}' id = 'choice-{{forloop.counter}}' required>
                         <label class = 'form-check-label opciones-pregunta' for = 'forloop.counter'>
                             {{opciones.texto}}
                         </label>
@@ -70,7 +70,7 @@
             <h3 class="reglas animate__bounceIn">
                 <p>Tendras que responder 5 preguntas aleatorias de categorias ya mencionadas.</p>
                 <p>Se mostraran una a la vez y vas a tener 15 segundos para responderla.</p>
-                <p>Una vez finalizado el quiz te mostraremos tu puntaje con tus respuestas.</p>
+                <p>Una vez finalizado el quiz, podras ver tu puntaje en la tabla de posiciones.</p>
             </h3>
             <div><img src="/static/img/aniversario-chaco.png" alt=""></div>
         </div>
