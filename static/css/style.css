@@ -171,6 +171,7 @@ color: rgb(19, 6, 94);
 .portada{
 font-family: 'Teko', sans-serif;
 font-size: 50px;
+font-weight: bold;
 }
 
 .portada-lista{
@@ -336,7 +337,7 @@ display: none;
 .efectos{
   margin-left: 15%;
   width: 900px;
-  height: 900px;
+  height: auto;
 }
 
 .efectos1{
