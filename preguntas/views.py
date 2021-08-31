@@ -18,6 +18,9 @@ def inicio(request):
 def juego(request):
     return render(request,'quiz/juego.html', context=None)
 
+def reiniciar(request):
+    QuizUsuario.partidas_jugadas(request)
+    return render(request,'quiz/juego.html', context=None)
 
 def registro(request):
 
@@ -39,6 +42,7 @@ def registro(request):
 
 
 def jugar(request):
+    
     if request.user.is_active:
         QuizUser, created = QuizUsuario.objects.get_or_create(usuario = request.user)
         if request.method == 'POST':
@@ -85,9 +89,7 @@ def ranking(request):
         
     }
     print(usuarios_top)
-    for x in usuarios_top:
-       print( x.__dict__)
-       #print( x.user.__dict__)
+    
 
     return render(request, 'quiz/ranking.html', context)
 
