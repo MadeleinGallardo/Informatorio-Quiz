@@ -29,6 +29,7 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('ranking/', views.ranking, name='ranking'),
     path('estadisticas/', views.estadisticas, name='estadisticas'),
+    path('reiniciar/',views.reiniciar,name="reiniciar"),
     
     
 
