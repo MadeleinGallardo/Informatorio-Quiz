@@ -356,6 +356,20 @@ display: none;
   
 }
 
+.volver-jugar{
+  margin-top: 25px;
+  margin-bottom: 10px;
+  margin-left: 20%;
+  font-size: 25px;
+}
+
+.jugar-volver{
+  margin-left: 45%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 25px;
+
+}
 .titulo-respuesta{
   font-family: 'Bebas Neue', cursive; 
   font-size: 60px;
