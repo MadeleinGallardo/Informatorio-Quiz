@@ -370,6 +370,25 @@ display: none;
   font-size: 25px;
 
 }
+
+.online{
+  color: #0b7e07;
+  font-weight: bold;
+}
+
+.color-user{
+  color: #064886;
+  font-weight: bold;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.omitir-jugar{
+  margin-left: 30%;
+  font-size: 25px;
+  font-weight: bold;
+}
+
 .titulo-respuesta{
   font-family: 'Bebas Neue', cursive; 
   font-size: 60px;
