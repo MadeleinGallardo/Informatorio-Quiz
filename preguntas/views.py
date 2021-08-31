@@ -18,6 +18,9 @@ def inicio(request):
 def juego(request):
     return render(request,'quiz/juego.html', context=None)
 
+def reiniciar(request):
+    QuizUsuario.partidas_jugadas(request)
+    return render(request,'quiz/juego.html', context=None)
 
 def registro(request):
 

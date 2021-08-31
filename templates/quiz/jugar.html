@@ -10,6 +10,9 @@ Provincialización del Chaco{% endblock %} {% block content %}
       <h1 class="pregunta-none">
         Puedes ver tu lugar en el
         <a class="a-none" href="{% url 'ranking' %}">tablero de posiciones</a>
+        <p>
+        <a type="button" href="{% url 'reiniciar' %}" class="btn btn-primary">Volver a Jugar</a>
+        </p>
       </h1>
       <img src="/static/img/provincia-chaco.jpg" alt="" />
     </div>

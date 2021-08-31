@@ -30,7 +30,8 @@ class QuizUsuario(models.Model):
     puntaje_total = models.DecimalField(verbose_name= 'Puntaje Total', default= 0, decimal_places= 2, max_digits= 10)
 
     def partidas_jugadas(self):
-        pass
+        PreguntasRespondidas.objects.all().delete()
+        
 
 
     def crear_intentos(self, pregunta):
@@ -94,6 +95,8 @@ class UserActivityLog(models.Model):
     
     class Meta:
         ordering = ['user', 'created']
+
+
 
     
     
