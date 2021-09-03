@@ -28,12 +28,12 @@
               <li class="item"><a href="/juego">Jugar <i class="fas fa-gamepad"></i></a></li>
               <li class="toggle"><a href="#"><i class="fas fa-bars"></i></a></li>
               {% if user.is_staff %}
-              <li class="">
-                  <a href="{% url 'admin:index' %}">Cargar preguntas <i class="fas fa-edit"></i> </a>
-              </li>
-              <li>
-                <a href="{% url 'estadisticas' %}"> Estadísticas de acceso <i class="fas fa-chart-bar"></i></a>
-            </li>
+                <li class="">
+                    <a href="{% url 'admin:index' %}">Cargar preguntas <i class="fas fa-edit"></i> </a>
+                </li>
+                <li>
+                  <a href="{% url 'estadisticas' %}"> Estadísticas de acceso <i class="fas fa-chart-bar"></i></a>
+                </li>
               {% endif %}
               
               {% if user.is_authenticated %}
