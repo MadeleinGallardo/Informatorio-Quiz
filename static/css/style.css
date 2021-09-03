@@ -171,6 +171,7 @@ color: rgb(19, 6, 94);
 .portada{
 font-family: 'Teko', sans-serif;
 font-size: 50px;
+font-weight: bold;
 }
 
 .portada-lista{
@@ -304,6 +305,25 @@ display: none;
   font-family:'Bebas Neue', cursive;
 }
 
+.login{
+  background-color: rgb(112, 200, 241);
+  color: rgb(0, 0, 0);
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.font-login{
+  font-size: 30px;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+}
+
+
+.text-muted{
+  color: rgb(221, 28, 28) !important;
+}
+
+
 .a-juego{
   color: #198615;
 }
@@ -336,7 +356,7 @@ display: none;
 .efectos{
   margin-left: 15%;
   width: 900px;
-  height: 900px;
+  height: auto;
 }
 
 .efectos1{
@@ -354,6 +374,39 @@ display: none;
   font-family: 'Hina Mincho', serif; 
   font-size: 30px;
   
+}
+
+.volver-jugar{
+  margin-top: 25px;
+  margin-bottom: 10px;
+  margin-left: 20%;
+  font-size: 25px;
+}
+
+.jugar-volver{
+  margin-left: 45%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 25px;
+
+}
+
+.online{
+  color: #0b7e07;
+  font-weight: bold;
+}
+
+.color-user{
+  color: #064886;
+  font-weight: bold;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+.omitir-jugar{
+  margin-left: 30%;
+  font-size: 25px;
+  font-weight: bold;
 }
 
 .titulo-respuesta{
